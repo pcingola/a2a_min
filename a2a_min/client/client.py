@@ -18,6 +18,10 @@ from a2a_min.types import (
     A2AClientJSONError,
     SendTaskStreamingRequest,
     SendTaskStreamingResponse,
+    TaskIdParams,
+    TaskPushNotificationConfig,
+    TaskQueryParams,
+    TaskSendParams,
 )
 import json
 
@@ -31,8 +35,8 @@ class A2AClient:
         else:
             raise ValueError("Must provide either agent_card or url")
 
-    async def send_task(self, payload: dict[str, Any]) -> SendTaskResponse:
-        request = SendTaskRequest(params=payload)
+    async def send_task(self, task_send_params: TaskSendParams) -> SendTaskResponse:
+        request = SendTaskRequest(params=task_send_params)
         return SendTaskResponse(**await self._send_request(request))
 
     async def send_task_streaming(
@@ -65,22 +69,22 @@ class A2AClient:
             except json.JSONDecodeError as e:
                 raise A2AClientJSONError(str(e)) from e
 
-    async def get_task(self, payload: dict[str, Any]) -> GetTaskResponse:
-        request = GetTaskRequest(params=payload)
+    async def get_task(self, task_query_params: TaskQueryParams) -> GetTaskResponse:
+        request = GetTaskRequest(params=task_query_params)
         return GetTaskResponse(**await self._send_request(request))
 
-    async def cancel_task(self, payload: dict[str, Any]) -> CancelTaskResponse:
-        request = CancelTaskRequest(params=payload)
+    async def cancel_task(self, task_id_params: TaskIdParams) -> CancelTaskResponse:
+        request = CancelTaskRequest(params=task_id_params)
         return CancelTaskResponse(**await self._send_request(request))
 
     async def set_task_callback(
-        self, payload: dict[str, Any]
+        self, task_push_notification_config: TaskPushNotificationConfig
     ) -> SetTaskPushNotificationResponse:
-        request = SetTaskPushNotificationRequest(params=payload)
+        request = SetTaskPushNotificationRequest(params=task_push_notification_config)
         return SetTaskPushNotificationResponse(**await self._send_request(request))
 
     async def get_task_callback(
-        self, payload: dict[str, Any]
+        self, task_id_params: TaskIdParams
     ) -> GetTaskPushNotificationResponse:
-        request = GetTaskPushNotificationRequest(params=payload)
+        request = GetTaskPushNotificationRequest(params=task_id_params)
         return GetTaskPushNotificationResponse(**await self._send_request(request))
