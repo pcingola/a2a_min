@@ -34,8 +34,8 @@ dependencies = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/yourusername/a2a-min"
-"Bug Tracker" = "https://github.com/yourusername/a2a-min/issues"
+"Homepage" = "https://github.com/pcingola/a2a_min"
+"Bug Tracker" = "https://github.com/pcingola/a2a_min/issues"
 
 [tool.setuptools.packages.find]
 include = ["a2a_min*"]

@@ -1,17 +1,38 @@
 # A2A Minimalistic Python SDK
 
-A minimalistic Python SDK for Agent-to-Agent (A2A) communication.
+A minimalistic Python SDK for [Agent-to-Agent (A2A)](https://google.github.io/A2A/#/) communication.
 
 ## Installation
 
-You can install the package using `uv` (recommended) or `pip`:
+### Requirements
+- Python >= 3.12.2
+
+
+### From GitHub
+
+To install the latest version directly from GitHub:
 
 ```bash
-# Using uv
-uv add a2a-min
-
 # Using pip
-pip install a2a-min
+pip install git+https://github.com/pcingola/a2a_min.git
+
+# Using uv
+uv pip install git+https://github.com/pcingola/a2a_min.git
+```
+
+### Development Installation
+
+For development purposes, clone the repository and install in editable mode:
+
+```bash
+# Clone the repository
+git clone https://github.com/pcingola/a2a_min.git
+cd a2a_min
+
+# Install in editable mode
+pip install -e .
+# or with uv
+uv pip install -e .
 ```
 
 ## Features
