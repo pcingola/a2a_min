@@ -8,7 +8,6 @@ version = "0.1.0"
 description = "Agent to Agent (A2A) minimalistic Python SDK"
 readme = "README.md"
 requires-python = ">=3.12.2"
-license = "MIT"
 authors = [
     {name = "A2A SDK Team"}
 ]
@@ -28,6 +27,7 @@ dependencies = [
     "jwcrypto>=1.5.6",
     "jwt>=1.3.1",
     "pydantic>=2.11.3",
+    "pyjwt>=2.10.1",
     "sse-starlette>=2.2.1",
     "starlette>=0.46.2",
     "uvicorn>=0.34.1",

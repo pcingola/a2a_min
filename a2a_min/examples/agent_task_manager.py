@@ -1,5 +1,5 @@
 from typing import AsyncIterable
-from a2a_min.examples.currency_agent import CurrencyAgent
+from a2a_min.examples.dummy_agent import DummyAgent
 from a2a_min.server import utils
 from a2a_min.server.task_manager import InMemoryTaskManager
 from a2a_min.utils.push_notification_auth import PushNotificationSenderAuth
@@ -36,7 +36,7 @@ logger = logging.getLogger(__name__)
 
 
 class AgentTaskManager(InMemoryTaskManager):
-    def __init__(self, agent: CurrencyAgent, notification_sender_auth: PushNotificationSenderAuth):
+    def __init__(self, agent: DummyAgent, notification_sender_auth: PushNotificationSenderAuth):
         super().__init__()
         self.agent = agent
         self.notification_sender_auth = notification_sender_auth
@@ -102,12 +102,12 @@ class AgentTaskManager(InMemoryTaskManager):
     ) -> JSONRPCResponse | None:
         task_send_params: TaskSendParams = request.params
         if not utils.are_modalities_compatible(
-            task_send_params.acceptedOutputModes, CurrencyAgent.SUPPORTED_CONTENT_TYPES
+            task_send_params.acceptedOutputModes, DummyAgent.SUPPORTED_CONTENT_TYPES
         ):
             logger.warning(
                 "Unsupported output mode. Received %s, Support %s",
                 task_send_params.acceptedOutputModes,
-                CurrencyAgent.SUPPORTED_CONTENT_TYPES,
+                DummyAgent.SUPPORTED_CONTENT_TYPES,
             )
             return utils.new_incompatible_types_error(request.id)
         

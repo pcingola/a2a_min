@@ -1,20 +1,19 @@
-from jwcrypto import jwk
 import uuid
+from jwt import PyJWK, PyJWKClient
 from starlette.responses import JSONResponse
 from starlette.requests import Request
 from typing import Any
+from jwcrypto import jwk
 
-import jwt
 import time
 import json
 import hashlib
 import httpx
 import logging
 
-from jwt import PyJWK, PyJWKClient
-
 logger = logging.getLogger(__name__)
 AUTH_HEADER_PREFIX = 'Bearer '
+
 
 class PushNotificationAuth:
     def _calculate_request_body_sha256(self, data: dict[str, Any]):
@@ -30,6 +29,7 @@ class PushNotificationAuth:
             separators=(",", ":"),
         )
         return hashlib.sha256(body_str.encode()).hexdigest()
+
 
 class PushNotificationSenderAuth(PushNotificationAuth):
     def __init__(self):
