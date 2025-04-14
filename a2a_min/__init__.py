@@ -40,3 +40,16 @@ from a2a_min.types import (
     A2AClientJSONError,
     MissingAPIKeyError,
 )
+
+# Import abstraction layer
+from a2a_min.abstraction import (
+    BaseAgent,
+    A2aMinClient,
+    A2aMinServer,
+    Middleware,
+    LoggingMiddleware,
+    MetricsMiddleware,
+    DebugMiddleware,
+    AgentInvocationResult,
+    TaskUpdate,
+)
