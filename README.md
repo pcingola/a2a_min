@@ -4,11 +4,7 @@ A minimalistic Python SDK for [Agent-to-Agent (A2A)](https://google.github.io/A2
 
 ## Installation
 
-### Requirements
-- Python >= 3.12.2
-
-
-### From GitHub
+### Installing From GitHub
 
 To install the latest version directly from GitHub:
 

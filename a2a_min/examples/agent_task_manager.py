@@ -91,7 +91,9 @@ class AgentTaskManager(InMemoryTaskManager):
                 )
 
         except Exception as e:
+            import traceback
             logger.error(f"An error occurred while streaming the response: {e}")
+            logger.error(traceback.format_exc())
             await self.enqueue_events_for_sse(
                 task_send_params.id,
                 InternalError(message=f"An error occurred while streaming the response: {e}")                
@@ -139,6 +141,7 @@ class AgentTaskManager(InMemoryTaskManager):
             agent_response = self.agent.invoke(query, task_send_params.sessionId)
         except Exception as e:
             logger.error(f"Error invoking agent: {e}")
+            logger.error(traceback.format_exc())
             raise ValueError(f"Error invoking agent: {e}")
         return await self._process_agent_response(
             request, agent_response
@@ -168,6 +171,7 @@ class AgentTaskManager(InMemoryTaskManager):
             )
         except Exception as e:
             logger.error(f"Error in SSE stream: {e}")
+            logger.error(traceback.format_exc())
             print(traceback.format_exc())
             return JSONRPCResponse(
                 id=request.id,
@@ -229,6 +233,7 @@ class AgentTaskManager(InMemoryTaskManager):
             return self.dequeue_events_for_sse(request.id, task_id_params.id, sse_event_queue)
         except Exception as e:
             logger.error(f"Error while reconnecting to SSE stream: {e}")
+            logger.error(traceback.format_exc())
             return JSONRPCResponse(
                 id=request.id,
                 error=InternalError(

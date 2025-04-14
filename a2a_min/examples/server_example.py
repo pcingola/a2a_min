@@ -40,6 +40,7 @@ def main(host, port):
 
         notification_sender_auth = PushNotificationSenderAuth()
         notification_sender_auth.generate_jwk()
+        
         server = A2AServer(
             agent_card=agent_card,
             task_manager=AgentTaskManager(agent=DummyAgent(), notification_sender_auth=notification_sender_auth),
