@@ -4,10 +4,6 @@ import asyncio
 from a2a_min import A2aMinClient
 
 
-async def run_client(url: str):
-    """Run a client that sends a message to the echo agent."""
-
-
 async def client():
     """ Run the example client """
     client = A2aMinClient.connect("http://localhost:8000")
