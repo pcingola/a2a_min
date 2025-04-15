@@ -1,8 +1,8 @@
 """Task manager implementation for the A2A Min abstraction layer."""
 
-from typing import AsyncIterable, Optional, Union
-from a2a_min.server.task_manager import InMemoryTaskManager
-from a2a_min.types import (
+from typing import AsyncIterable, Union
+from a2a_min.base.server.task_manager import InMemoryTaskManager
+from a2a_min.base.types import (
     SendTaskRequest, SendTaskResponse, SendTaskStreamingRequest,
     JSONRPCResponse, TaskStatus, TaskState, Message, Artifact,
     TextPart, TaskStatusUpdateEvent, TaskArtifactUpdateEvent

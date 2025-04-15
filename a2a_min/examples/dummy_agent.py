@@ -1,4 +1,3 @@
-import random
 
 
 USELESS_ANSWERS = [

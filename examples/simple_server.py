@@ -5,10 +5,9 @@ Simple example of creating an A2A server.
 This script demonstrates how to create and run an A2A server that can handle tasks.
 """
 
-import asyncio
-from a2a_min import (
-    A2AServer,
-    TaskManager,
+from a2a_min.base.server import A2AServer
+from a2a_min.base.server.task_manager import TaskManager
+from a2a_min.base.types import (
     AgentCard,
     AgentProvider,
     AgentCapabilities,
@@ -19,8 +18,8 @@ from a2a_min import (
     TaskStatus,
     TextPart,
     Message,
+    SendTaskRequest
 )
-from a2a_min.types import SendTaskRequest
 import logging
 import os
 

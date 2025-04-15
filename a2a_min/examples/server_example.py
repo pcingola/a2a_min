@@ -1,9 +1,8 @@
-import jwt
 from a2a_min.examples.agent_task_manager import AgentTaskManager
 from a2a_min.examples.dummy_agent import DummyAgent
-from a2a_min.server import A2AServer
-from a2a_min.types import AgentCard, AgentCapabilities, AgentSkill, MissingAPIKeyError
-from a2a_min.utils.push_notification_auth import PushNotificationSenderAuth
+from a2a_min.base.server import A2AServer
+from a2a_min.base.types import AgentCard, AgentCapabilities, AgentSkill
+from a2a_min.base.utils.push_notification_auth import PushNotificationSenderAuth
 import click
 import logging
 from dotenv import load_dotenv

@@ -2,7 +2,7 @@ from starlette.applications import Starlette
 from starlette.responses import JSONResponse
 from sse_starlette.sse import EventSourceResponse
 from starlette.requests import Request
-from a2a_min.types import (
+from a2a_min.base.types import (
     A2ARequest,
     JSONRPCResponse,
     InvalidRequestError,
@@ -20,7 +20,7 @@ from a2a_min.types import (
 from pydantic import ValidationError
 import json
 from typing import AsyncIterable, Any
-from a2a_min.server.task_manager import TaskManager
+from a2a_min.base.server.task_manager import TaskManager
 
 import logging
 

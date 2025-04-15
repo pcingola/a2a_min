@@ -1,9 +1,9 @@
 from typing import AsyncIterable
 from a2a_min.examples.dummy_agent import DummyAgent
-from a2a_min.server import utils
-from a2a_min.server.task_manager import InMemoryTaskManager
-from a2a_min.utils.push_notification_auth import PushNotificationSenderAuth
-from a2a_min.types import (
+from a2a_min.base.server import utils
+from a2a_min.base.server.task_manager import InMemoryTaskManager
+from a2a_min.base.utils.push_notification_auth import PushNotificationSenderAuth
+from a2a_min.base.types import (
     SendTaskRequest,
     TaskSendParams,
     Message,
@@ -21,10 +21,6 @@ from a2a_min.types import (
     Task,
     TaskIdParams,
     PushNotificationConfig,
-    SetTaskPushNotificationRequest,
-    SetTaskPushNotificationResponse,
-    TaskPushNotificationConfig,
-    TaskNotFoundError,
     InvalidParamsError,
 )
 from typing import Union

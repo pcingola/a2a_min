@@ -1,9 +1,8 @@
 """Server implementation for the A2A Min abstraction layer."""
 
 from typing import Optional, List, Any
-from a2a_min.types import AgentCard
-from a2a_min.server import A2AServer
-from a2a_min.server.task_manager import TaskManager
+from a2a_min.base.server import A2AServer
+from a2a_min.base.server.task_manager import TaskManager
 from a2a_min.abstraction.agent import BaseAgent
 from a2a_min.abstraction.task_manager import A2aMinTaskManager
 

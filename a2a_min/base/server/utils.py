@@ -1,4 +1,4 @@
-from a2a_min.types import (
+from a2a_min.base.types import (
     JSONRPCResponse,
     ContentTypeNotSupportedError,
     UnsupportedOperationError,

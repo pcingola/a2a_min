@@ -1,8 +1,8 @@
 """Base agent interface for the A2A Min abstraction layer."""
 
 from abc import ABC, abstractmethod
-from typing import AsyncIterable, List, Optional, Dict, Any
-from a2a_min.types import AgentCard, AgentCapabilities, AgentSkill, Message, Part, TextPart
+from typing import AsyncIterable, List
+from a2a_min.base.types import AgentCard, AgentCapabilities, AgentSkill
 from a2a_min.abstraction.types import AgentInvocationResult
 
 class BaseAgent(ABC):

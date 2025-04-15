@@ -1,7 +1,7 @@
 """Example of using the A2A Min abstraction layer with a simple echo agent."""
 
 import asyncio
-from a2a_min import (
+from a2a_min.abstraction import (
     BaseAgent,
     A2aMinServer,
     A2aMinClient,
@@ -9,7 +9,7 @@ from a2a_min import (
     LoggingMiddleware,
     MetricsMiddleware,
 )
-from a2a_min.types import Message, TextPart
+from a2a_min.base.types import Message, TextPart
 import logging
 
 # Configure logging

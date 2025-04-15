@@ -2,13 +2,12 @@
 
 from typing import AsyncIterable, Optional, List
 from uuid import uuid4
-from a2a_min.types import (
-    AgentCard, Task, TaskState, Message, TextPart, 
-    TaskSendParams, TaskQueryParams, TaskStatusUpdateEvent,
-    TaskArtifactUpdateEvent
+from a2a_min.base.types import (
+    AgentCard, Task, Message, TextPart, 
+    TaskSendParams, TaskQueryParams
 )
-from a2a_min.client.card_resolver import A2ACardResolver
-from a2a_min.client.client import A2AClient
+from a2a_min.base.client.card_resolver import A2ACardResolver
+from a2a_min.base.client.client import A2AClient
 from a2a_min.abstraction.types import TaskUpdate
 
 class A2aMinClient:

@@ -7,7 +7,8 @@ This script demonstrates how to create a client and send a task to an A2A agent.
 
 import asyncio
 import os
-from a2a_min import A2AClient, TextPart, Message, TaskState
+from a2a_min.base.client import A2AClient
+from a2a_min.base.types import TextPart, Message, TaskState
 
 # Replace with your agent URL
 AGENT_URL = os.environ.get("AGENT_URL", "http://localhost:5000")
