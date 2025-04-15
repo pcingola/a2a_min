@@ -19,4 +19,4 @@ cd $PROJECT_DIR
 cd $PROJECT_NAME
 
 # Run the server
-python $PROJECT_DIR/$PROJECT_NAME/examples/server_example.py
+python $PROJECT_DIR/$PROJECT_NAME/examples/base/server_example.py
