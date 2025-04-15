@@ -2,7 +2,7 @@
 
 import asyncio
 from a2a_min.abstraction import (
-    BaseAgent,
+    AgentAdapter,
     A2aMinServer,
     A2aMinClient,
     AgentInvocationResult,
@@ -16,7 +16,7 @@ import json
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-class MultiModalAgent(BaseAgent):
+class MultiModalAgent(AgentAdapter):
     """An agent that can respond with different content types."""
     
     @property

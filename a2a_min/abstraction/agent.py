@@ -5,10 +5,9 @@ from typing import AsyncIterable, List
 from a2a_min.base.types import AgentCard, AgentCapabilities, AgentSkill
 from a2a_min.abstraction.types import AgentInvocationResult
 
-class BaseAgent(ABC):
-    """Base class for all agents.
-    
-    This class defines the interface that all agents must implement.
+class AgentAdapter(ABC):
+    """
+    Base class for adapters that connect to different agents.
     """
     
     @property

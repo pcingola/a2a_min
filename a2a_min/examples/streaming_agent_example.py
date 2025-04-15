@@ -2,7 +2,7 @@
 
 import asyncio
 from a2a_min.abstraction import (
-    BaseAgent,
+    AgentAdapter,
     A2aMinServer,
     A2aMinClient,
     AgentInvocationResult,
@@ -15,7 +15,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-class StreamingAgent(BaseAgent):
+class StreamingAgent(AgentAdapter):
     """A simple agent that streams its response word by word."""
     
     @property

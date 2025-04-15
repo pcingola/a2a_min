@@ -2,7 +2,7 @@
 
 import asyncio
 from a2a_min.abstraction import (
-    BaseAgent,
+    AgentAdapter,
     A2aMinServer,
     A2aMinClient,
     AgentInvocationResult,
@@ -16,7 +16,8 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-class EchoAgent(BaseAgent):
+
+class EchoAgent(AgentAdapter):
     """A simple echo agent that repeats the user's message."""
     
     @property

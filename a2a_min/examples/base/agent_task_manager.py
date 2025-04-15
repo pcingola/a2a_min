@@ -1,5 +1,5 @@
 from typing import AsyncIterable
-from a2a_min.examples.dummy_agent import DummyAgent
+from a2a_min.examples.base.dummy_agent import DummyAgent
 from a2a_min.base.server import utils
 from a2a_min.base.server.task_manager import InMemoryTaskManager
 from a2a_min.base.utils.push_notification_auth import PushNotificationSenderAuth

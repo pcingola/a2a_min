@@ -35,7 +35,7 @@ from a2a_min.base.types import (
 
 # Import abstraction layer
 from a2a_min.abstraction import (
-    BaseAgent,
+    AgentAdapter,
     A2aMinClient,
     A2aMinServer,
     Middleware,

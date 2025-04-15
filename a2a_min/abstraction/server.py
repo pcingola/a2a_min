@@ -3,7 +3,7 @@
 from typing import Optional, List, Any
 from a2a_min.base.server import A2AServer
 from a2a_min.base.server.task_manager import TaskManager
-from a2a_min.abstraction.agent import BaseAgent
+from a2a_min.abstraction.agent import AgentAdapter
 from a2a_min.abstraction.task_manager import A2aMinTaskManager
 
 class Middleware:
@@ -54,7 +54,7 @@ class A2aMinServer:
     @classmethod
     def from_agent(
         cls, 
-        agent: BaseAgent, 
+        agent: AgentAdapter, 
         host: str = "localhost", 
         port: int = 8000,
         middlewares: Optional[List[Middleware]] = None

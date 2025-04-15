@@ -1,5 +1,6 @@
 """Types for the A2A Min abstraction layer."""
 
+from typing import Any
 from pydantic import BaseModel
 from a2a_min.base.types import Message, TaskState, Artifact
 
@@ -9,7 +10,7 @@ class AgentInvocationResult(BaseModel):
     message: Message
     is_complete: bool = True
     requires_input: bool = False
-    metadata: dict[str, any] | None = None
+    metadata: dict[str, Any] | None = None
     
     class Config:
         arbitrary_types_allowed = True
@@ -20,7 +21,7 @@ class TaskUpdate(BaseModel):
     status: TaskState | None = None
     artifact: Artifact | None = None
     is_final: bool = False
-    metadata: dict[str, any] | None = None
+    metadata: dict[str, Any] | None = None
 
     class Config:
         arbitrary_types_allowed = True

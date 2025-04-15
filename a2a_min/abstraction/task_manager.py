@@ -7,7 +7,7 @@ from a2a_min.base.types import (
     JSONRPCResponse, TaskStatus, TaskState, Message, Artifact,
     TextPart, TaskStatusUpdateEvent, TaskArtifactUpdateEvent
 )
-from a2a_min.abstraction.agent import BaseAgent
+from a2a_min.abstraction.agent import AgentAdapter
 import asyncio
 import logging
 
@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 class A2aMinTaskManager(InMemoryTaskManager):
     """A simplified task manager for A2A servers."""
     
-    def __init__(self, agent: BaseAgent):
+    def __init__(self, agent: AgentAdapter):
         """Initialize the task manager.
         
         Args:
