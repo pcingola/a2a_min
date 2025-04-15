@@ -2,7 +2,7 @@
 
 from typing import Any
 from pydantic import BaseModel
-from a2a_min.base.types import Message, TaskState, Artifact
+from a2a_min.base.types import Message, TaskState, Artifact, TextPart
 
 
 class AgentInvocationResult(BaseModel):
@@ -14,6 +14,13 @@ class AgentInvocationResult(BaseModel):
     
     class Config:
         arbitrary_types_allowed = True
+
+    @classmethod
+    def agent_msg(cls, message: str):
+        return cls(message=Message(
+            role="agent",
+            parts=[TextPart(text=message)]
+        ))
 
 
 class TaskUpdate(BaseModel):

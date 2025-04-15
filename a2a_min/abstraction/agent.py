@@ -18,7 +18,11 @@ class AgentAdapter(ABC):
     @property
     def description(self) -> str:
         """Return a description of the agent."""
-        return "A generic agent"
+        docstring = self.__class__.__doc__
+        if docstring:
+            # Take first line of docstring as description
+            return docstring.strip().split('\n')[0]
+        raise ValueError("No docstring found for the agent class. Missing docstring?")
     
     @property
     def supported_content_types(self) -> List[str]:
