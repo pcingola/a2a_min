@@ -3,12 +3,11 @@
 from typing import AsyncIterable, Optional, List
 from uuid import uuid4
 from a2a_min.base.types import (
-    AgentCard, Task, Message, TextPart, 
+    AgentCard, SendTaskStreamingResponse, Task, Message, TaskStatusUpdateEvent, TextPart, 
     TaskSendParams, TaskQueryParams
 )
 from a2a_min.base.client.card_resolver import A2ACardResolver
 from a2a_min.base.client.client import A2AClient
-from a2a_min.types import TaskUpdate
 
 
 class A2aMinClient:
@@ -97,7 +96,7 @@ class A2aMinClient:
         session_id: Optional[str] = None,
         task_id: Optional[str] = None,
         accepted_output_modes: Optional[List[str]] = None
-    ) -> AsyncIterable[TaskUpdate]:
+    ) -> AsyncIterable[SendTaskStreamingResponse]:
         """Send a message to the agent and get a streaming response.
         
         Args:
@@ -130,20 +129,8 @@ class A2aMinClient:
             acceptedOutputModes=accepted_output_modes
         )
         
-        async for update in self._client.send_task_streaming(params):
-            if hasattr(update.result, "status"):
-                status_update = update.result
-                yield TaskUpdate(
-                    status=status_update.status.state,
-                    is_final=status_update.final,
-                    metadata=status_update.metadata
-                )
-            elif hasattr(update.result, "artifact"):
-                artifact_update = update.result
-                yield TaskUpdate(
-                    artifact=artifact_update.artifact,
-                    metadata=artifact_update.metadata
-                )
+        async for update_event in self._client.send_task_streaming(params):
+            yield update_event
     
     async def get_task(self, task_id: str, history_length: Optional[int] = None) -> Task:
         """Get a task by ID.

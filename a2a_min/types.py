@@ -2,7 +2,7 @@
 
 from typing import Any
 from pydantic import BaseModel
-from a2a_min.base.types import Message, TaskState, Artifact, TextPart
+from a2a_min.base.types import Message, TextPart
 
 
 class AgentInvocationResult(BaseModel):
@@ -16,19 +16,10 @@ class AgentInvocationResult(BaseModel):
         arbitrary_types_allowed = True
 
     @classmethod
-    def agent_msg(cls, message: str):
-        return cls(message=Message(
-            role="agent",
-            parts=[TextPart(text=message)]
-        ))
-
-
-class TaskUpdate(BaseModel):
-    """An update from a streaming task."""
-    status: TaskState | None = None
-    artifact: Artifact | None = None
-    is_final: bool = False
-    metadata: dict[str, Any] | None = None
-
-    class Config:
-        arbitrary_types_allowed = True
+    def agent_msg(cls, message: str
+                  , is_complete: bool = True
+                  , requires_input: bool = False) -> "AgentInvocationResult":
+        return cls(message=Message(role="agent", parts=[TextPart(text=message)]),
+                   is_complete=is_complete,
+                   requires_input=requires_input
+                   )
