@@ -1,6 +1,6 @@
 """ Example of using the A2A Min abstraction layer with a simple echo server """
 
-from a2a_min.abstraction import AgentAdapter, A2aMinServer, AgentInvocationResult
+from a2a_min import AgentAdapter, A2aMinServer, AgentInvocationResult
 
 
 class EchoAgent(AgentAdapter):

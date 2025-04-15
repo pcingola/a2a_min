@@ -8,7 +8,8 @@ from a2a_min.base.types import (
 )
 from a2a_min.base.client.card_resolver import A2ACardResolver
 from a2a_min.base.client.client import A2AClient
-from a2a_min.abstraction.types import TaskUpdate
+from a2a_min.types import TaskUpdate
+
 
 class A2aMinClient:
     """A simplified client for interacting with A2A servers."""

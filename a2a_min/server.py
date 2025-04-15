@@ -3,33 +3,10 @@
 from typing import Optional, List, Any
 from a2a_min.base.server import A2AServer
 from a2a_min.base.server.task_manager import TaskManager
-from a2a_min.abstraction.agent import AgentAdapter
-from a2a_min.abstraction.task_manager import A2aMinTaskManager
+from a2a_min.agent_adapter import AgentAdapter
+from a2a_min.middleware.middleware import Middleware
+from a2a_min.task_manager import A2aMinTaskManager
 
-class Middleware:
-    """Base class for middleware."""
-    
-    async def process_request(self, request: Any) -> Any:
-        """Process a request before it's handled by the server.
-        
-        Args:
-            request: The request to process.
-            
-        Returns:
-            The processed request.
-        """
-        return request
-    
-    async def process_response(self, response: Any) -> Any:
-        """Process a response before it's sent to the client.
-        
-        Args:
-            response: The response to process.
-            
-        Returns:
-            The processed response.
-        """
-        return response
 
 class A2aMinServer:
     """A simplified server for hosting A2A agents."""

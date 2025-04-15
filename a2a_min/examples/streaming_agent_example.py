@@ -1,7 +1,7 @@
 """Example of using the A2A Min abstraction layer with a streaming agent."""
 
 import asyncio
-from a2a_min.abstraction import (
+from a2a_min import (
     AgentAdapter,
     A2aMinServer,
     A2aMinClient,

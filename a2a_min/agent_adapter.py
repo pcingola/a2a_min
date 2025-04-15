@@ -3,7 +3,7 @@
 from abc import ABC, abstractmethod
 from typing import AsyncIterable, List
 from a2a_min.base.types import AgentCard, AgentCapabilities, AgentSkill
-from a2a_min.abstraction.types import AgentInvocationResult
+from a2a_min.types import AgentInvocationResult
 
 class AgentAdapter(ABC):
     """

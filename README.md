@@ -34,7 +34,7 @@ uv pip install git+https://github.com/pcingola/a2a_min.git
 Here's how to create a simple server that hosts an echo agent:
 
 ```python
-from a2a_min.abstraction import AgentAdapter, A2aMinServer, AgentInvocationResult
+from a2a_min import AgentAdapter, A2aMinServer, AgentInvocationResult
 
 class EchoAgent(AgentAdapter):
     """ A simple echo agent that repeats the user's message """
@@ -49,7 +49,7 @@ A2aMinServer.from_agent(EchoAgent()).start()
 Save this as `echo_a2a_server.py` and run it to start the server:
 
 ```bash
-python echo_a2a_server.py
+python a2a_min/examples/echo_a2a/echo_a2a_server.py
 ```
 
 ### Creating a Client to Interact with the Agent
@@ -58,7 +58,7 @@ Here's how to create a client that connects to the echo agent:
 
 ```python
 import asyncio
-from a2a_min.abstraction import A2aMinClient
+from a2a_min import A2aMinClient
 
 async def client():
     """ Run the example client """
@@ -78,7 +78,7 @@ if __name__ == "__main__":
 Save this as `echo_a2a_client.py` and run it to interact with the server:
 
 ```bash
-python echo_a2a_client.py
+ python a2a_min/examples/echo_a2a/echo_a2a_client.py
 ```
 
 ## Creating Custom Agents
@@ -86,7 +86,7 @@ python echo_a2a_client.py
 To create your own agent, extend the `AgentAdapter` class and implement the `invoke` method:
 
 ```python
-from a2a_min.abstraction import AgentAdapter, AgentInvocationResult
+from a2a_min import AgentAdapter, AgentInvocationResult
 
 class MyCustomAgent(AgentAdapter):
     def invoke(self, query: str, session_id: str) -> AgentInvocationResult:
@@ -103,7 +103,7 @@ To create an agent that streams its response:
 
 ```python
 import asyncio
-from a2a_min.abstraction import AgentAdapter, AgentInvocationResult
+from a2a_min import AgentAdapter, AgentInvocationResult
 
 class StreamingAgent(AgentAdapter):
     async def stream(self, query: str, session_id: str):
@@ -137,7 +137,7 @@ async def streaming_client():
 To create an agent that can respond with text, images, and structured data:
 
 ```python
-from a2a_min.abstraction import AgentAdapter, AgentInvocationResult
+from a2a_min import AgentAdapter, AgentInvocationResult
 from a2a_min.types import Message, TextPart, FilePart, FileContent, DataPart
 
 class MultiModalAgent(AgentAdapter):
@@ -176,7 +176,7 @@ class MultiModalAgent(AgentAdapter):
 You can add middleware to your server for logging, metrics, or other cross-cutting concerns:
 
 ```python
-from a2a_min.abstraction import A2aMinServer, LoggingMiddleware, MetricsMiddleware
+from a2a_min import A2aMinServer, LoggingMiddleware, MetricsMiddleware
 
 # Create middleware
 logging_middleware = LoggingMiddleware()

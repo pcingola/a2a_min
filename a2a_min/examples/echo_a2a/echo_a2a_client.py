@@ -1,7 +1,7 @@
 """ Example of using the A2A Min abstraction layer with a simple echo client """
 
 import asyncio
-from a2a_min.abstraction import A2aMinClient
+from a2a_min import A2aMinClient
 
 
 async def run_client(url: str):
