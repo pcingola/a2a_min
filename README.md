@@ -2,9 +2,6 @@
 
 A minimalistic Python SDK for [Agent-to-Agent (A2A)](https://google.github.io/A2A/#/) communication.
 
-## Installation
-
-
 ## Overview
 
 The A2A Min SDK provides a Python implementation of the Agent-to-Agent (A2A) protocol, enabling communication between AI agents. The package includes:
@@ -15,7 +12,19 @@ The A2A Min SDK provides a Python implementation of the Agent-to-Agent (A2A) pro
 - Support for multimodal content (text, images, structured data)
 - Middleware for cross-cutting concerns like logging and metrics
 
-## Installing From GitHub
+## Installation
+
+You can install the package from PyPI using pip:
+
+```bash
+# Using pip
+pip install a2a-min
+
+# Using uv
+uv pip install a2a-min
+```
+
+### Installing From GitHub (develpment version)
 
 To install the latest version directly from GitHub:
 
